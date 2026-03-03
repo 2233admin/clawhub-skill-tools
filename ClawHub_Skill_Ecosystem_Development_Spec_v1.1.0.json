@@ -1,0 +1,1294 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://clawhub.ai/schemas/ClawHub_Skill_Ecosystem_Development_Spec_v1.1.0.json",
+  "title": "ClawHub_Skill_Ecosystem_Development_Spec",
+  "description": "Machine-readable complete development spec for ClawHub Skill ecosystem. Covers all requirements, architecture, rules, and compliance standards for building autonomous Agent-driven Skill creation systems.",
+  "version": "1.1.0",
+  "type": "object",
+  "required": [
+    "project_identity",
+    "schema_governance",
+    "NSLT_engineering",
+    "Meta_Skills",
+    "SkillRL",
+    "component_reuse_system",
+    "ClawHub_audit_compliance",
+    "error_handling",
+    "observability",
+    "testing_strategy",
+    "implementation_priority",
+    "acceptance_criteria"
+  ],
+  "properties": {
+    "project_identity": {
+      "type": "object",
+      "required": [
+        "name",
+        "core_innovation",
+        "core_goal",
+        "tech_stack"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "const": "ClawHub_Skill_Ecosystem",
+          "description": "Project identifier, must match exactly"
+        },
+        "core_innovation": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "string",
+            "enum": [
+              "Meta-Skills",
+              "SkillRL",
+              "NSLT_Engineering"
+            ]
+          },
+          "description": "Three pillars of innovation"
+        },
+        "core_goal": {
+          "type": "string",
+          "const": "Build a closed-loop system where Agents autonomously write compliant ClawHub Skills, reuse high-quality components from ClawHub/GitHub, avoid low-quality code, and pass ClawHub security audits"
+        },
+        "tech_stack": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Python>=3.10",
+              "ChromaDB",
+              "Sentence-Transformers",
+              "GitHub API",
+              "ClawHub API",
+              "Anthropic Claude API",
+              "Docker",
+              "Nginx",
+              "Prometheus",
+              "OpenTelemetry"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "schema_governance": {
+      "type": "object",
+      "description": "Schema evolution and version management policy",
+      "required": [
+        "version",
+        "compatibility_policy",
+        "migration_path",
+        "deprecation_notice_period"
+      ],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "const": "1.1.0",
+          "description": "Current schema version, follow semver"
+        },
+        "compatibility_policy": {
+          "type": "string",
+          "enum": [
+            "backward_compatible",
+            "forward_compatible",
+            "breaking_change_requires_migration"
+          ],
+          "const": "backward_compatible"
+        },
+        "migration_path": {
+          "type": "string",
+          "format": "uri",
+          "const": "https://clawhub.ai/docs/spec-migration"
+        },
+        "deprecation_notice_period": {
+          "type": "string",
+          "const": "90_days",
+          "description": "Minimum notice period before removing deprecated fields"
+        },
+        "extension_mechanism": {
+          "type": "object",
+          "properties": {
+            "custom_fields_prefix": {
+              "type": "string",
+              "const": "x-"
+            },
+            "validation_behavior": {
+              "type": "string",
+              "enum": [
+                "ignore_unknown",
+                "warn_unknown",
+                "reject_unknown"
+              ],
+              "const": "warn_unknown"
+            }
+          }
+        }
+      }
+    },
+    "NSLT_engineering": {
+      "type": "object",
+      "description": "Neural Scaling Laws Trilogy engineering implementation",
+      "required": [
+        "three_phases",
+        "quality_metrics",
+        "architecture_constraints"
+      ],
+      "properties": {
+        "three_phases": {
+          "type": "object",
+          "required": [
+            "architecture_design",
+            "capability_adaptation",
+            "engineering_implementation"
+          ],
+          "properties": {
+            "architecture_design": {
+              "type": "object",
+              "required": [
+                "layers",
+                "principles",
+                "manifest_requirements"
+              ],
+              "properties": {
+                "layers": {
+                  "type": "array",
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "metadata_layer",
+                      "core_logic_layer",
+                      "dependency_layer",
+                      "quality_metrics_layer"
+                    ]
+                  }
+                },
+                "principles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "architecture_first",
+                      "scale_adaptation",
+                      "modularization≥80%",
+                      "no_redundant_layers"
+                    ]
+                  }
+                },
+                "manifest_requirements": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "skill.id",
+                      "skill.name",
+                      "skill.description",
+                      "dependencies",
+                      "conflicts",
+                      "quality_metrics",
+                      "security_notes"
+                    ]
+                  }
+                }
+              }
+            },
+            "capability_adaptation": {
+              "type": "object",
+              "required": [
+                "principles",
+                "constraints"
+              ],
+              "properties": {
+                "principles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "detail_refinement",
+                      "token_efficiency≥0.9",
+                      "Claude_Code_compatible",
+                      "core_logic≤500_lines"
+                    ]
+                  }
+                },
+                "constraints": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "token_limit_compliance",
+                      "API_compatibility",
+                      "redundant_content_moved_to_references"
+                    ]
+                  }
+                }
+              }
+            },
+            "engineering_implementation": {
+              "type": "object",
+              "required": [
+                "principles",
+                "validation_rules"
+              ],
+              "properties": {
+                "principles": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "closed_loop_validation",
+                      "stability_first",
+                      "compliance_mandatory"
+                    ]
+                  }
+                },
+                "validation_rules": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "ClawHub_security_audit_pass_rate=100%",
+                      "Claude_Code_execution_pass_rate≥90%",
+                      "user_feedback_iteration_loop"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        },
+        "quality_metrics": {
+          "type": "object",
+          "required": [
+            "quality_score_threshold",
+            "reuse_rate_threshold",
+            "token_efficiency_threshold",
+            "test_coverage_threshold"
+          ],
+          "properties": {
+            "quality_score_threshold": {
+              "type": "number",
+              "minimum": 0.7,
+              "maximum": 1.0,
+              "const": 0.7
+            },
+            "reuse_rate_threshold": {
+              "type": "number",
+              "minimum": 0.8,
+              "maximum": 1.0,
+              "const": 0.8
+            },
+            "token_efficiency_threshold": {
+              "type": "number",
+              "minimum": 0.8,
+              "maximum": 1.0,
+              "const": 0.8
+            },
+            "test_coverage_threshold": {
+              "type": "number",
+              "minimum": 0.9,
+              "maximum": 1.0,
+              "const": 0.9
+            }
+          }
+        },
+        "architecture_constraints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "no_hardcoded_secrets",
+              "no_external_network_calls_without_approval",
+              "no_absolute_path_access",
+              "no_modification_of_system_files"
+            ]
+          }
+        }
+      }
+    },
+    "Meta_Skills": {
+      "type": "object",
+      "description": "Autonomous Agent workflow for Skill creation",
+      "required": [
+        "closed_loop_flow",
+        "core_principle",
+        "agent_capabilities",
+        "tool_integration"
+      ],
+      "properties": {
+        "closed_loop_flow": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "items": {
+            "type": "string",
+            "enum": [
+              "requirement_abstraction",
+              "NSLT_architecture_decomposition",
+              "Meta-Agent_requirement_analysis",
+              "Skill_architecture_generation",
+              "multi_paper_template_fusion",
+              "ClawHub_spec_validation",
+              "security_audit",
+              "Claude_Code_execution_validation",
+              "feedback_iteration"
+            ]
+          }
+        },
+        "core_principle": {
+          "type": "string",
+          "const": "Requirements first → Architecture design → Code writing, PROHIBIT direct requirement-to-code"
+        },
+        "agent_capabilities": {
+          "type": "object",
+          "required": [
+            "requirement_analysis",
+            "architecture_generation",
+            "self_iteration"
+          ],
+          "properties": {
+            "requirement_analysis": {
+              "type": "string",
+              "const": "Decompose ambiguous requirements into atomic functions + dependency components + quality metrics"
+            },
+            "architecture_generation": {
+              "type": "string",
+              "const": "Automatically generate ClawHub-compliant 4-layer Skill architecture"
+            },
+            "self_iteration": {
+              "type": "string",
+              "const": "Agent autonomously completes validation → modification → re-validation loop, human only reviews critical nodes"
+            }
+          }
+        },
+        "tool_integration": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "skill-creator.py",
+              "project_discovery.py",
+              "skill_discovery.py",
+              "quality_scorer.py",
+              "init_skill_patch.py"
+            ]
+          }
+        }
+      }
+    },
+    "SkillRL": {
+      "type": "object",
+      "description": "Reinforcement Learning framework for Skill optimization",
+      "required": [
+        "agent_roles",
+        "rl_feedback_mechanism",
+        "reward_penalty_rules"
+      ],
+      "properties": {
+        "agent_roles": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "role",
+              "responsibility",
+              "rl_goal",
+              "validation_rules"
+            ],
+            "properties": {
+              "role": {
+                "type": "string",
+                "enum": [
+                  "RequirementAgent",
+                  "ArchitectureAgent",
+                  "CodingAgent",
+                  "AuditAgent",
+                  "EvaluationAgent"
+                ]
+              },
+              "responsibility": {
+                "type": "string",
+                "minLength": 10
+              },
+              "rl_goal": {
+                "type": "string",
+                "minLength": 10
+              },
+              "validation_rules": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 5
+                }
+              }
+            },
+            "oneOf": [
+              {
+                "properties": {
+                  "role": {
+                    "const": "RequirementAgent"
+                  },
+                  "responsibility": {
+                    "const": "Decompose user requirements into atomic modules, align with NSLT design principles"
+                  },
+                  "rl_goal": {
+                    "const": "Requirement decomposition accuracy → 1.0"
+                  },
+                  "validation_rules": {
+                    "const": [
+                      "No ambiguous requirements",
+                      "All modules have clear quality metrics",
+                      "Dependencies are identified"
+                    ]
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "role": {
+                    "const": "AuditAgent"
+                  },
+                  "responsibility": {
+                    "const": "Execute ClawHub security audit rules, detect vulnerabilities, redundancy, conflicts, compliance risks"
+                  },
+                  "rl_goal": {
+                    "const": "Security vulnerabilities → 0, compliance issues → 0"
+                  },
+                  "validation_rules": {
+                    "const": [
+                      "No sensitive data persistence",
+                      "No path traversal risks",
+                      "All operations are within allowed scope",
+                      "All risk operations require user confirmation"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "rl_feedback_mechanism": {
+          "type": "object",
+          "required": [
+            "reward_signal",
+            "penalty_condition",
+            "iteration_trigger"
+          ],
+          "properties": {
+            "reward_signal": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ClawHub_audit_result",
+                  "quality_score",
+                  "execution_pass_rate",
+                  "user_satisfaction"
+                ]
+              }
+            },
+            "penalty_condition": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "security_vulnerabilities>0",
+                  "compliance_issues>0",
+                  "quality_score<0.7",
+                  "reuse_rate<0.8"
+                ]
+              }
+            },
+            "iteration_trigger": {
+              "type": "string",
+              "const": "EvaluationAgent score < 0.8 triggers CodingAgent/ArchitectureAgent iteration"
+            }
+          }
+        },
+        "reward_penalty_rules": {
+          "type": "object",
+          "required": [
+            "reward_weights",
+            "penalty_weights"
+          ],
+          "properties": {
+            "reward_weights": {
+              "type": "object",
+              "required": [
+                "ClawHub_audit_pass",
+                "quality_score",
+                "reuse_rate",
+                "user_satisfaction"
+              ],
+              "properties": {
+                "ClawHub_audit_pass": {
+                  "type": "number",
+                  "const": 0.4
+                },
+                "quality_score": {
+                  "type": "number",
+                  "const": 0.3
+                },
+                "reuse_rate": {
+                  "type": "number",
+                  "const": 0.2
+                },
+                "user_satisfaction": {
+                  "type": "number",
+                  "const": 0.1
+                }
+              },
+              "additionalProperties": false
+            },
+            "penalty_weights": {
+              "type": "object",
+              "required": [
+                "security_vulnerability",
+                "compliance_violation",
+                "low_quality_score"
+              ],
+              "properties": {
+                "security_vulnerability": {
+                  "type": "number",
+                  "const": -0.5
+                },
+                "compliance_violation": {
+                  "type": "number",
+                  "const": -0.3
+                },
+                "low_quality_score": {
+                  "type": "number",
+                  "const": -0.2
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        }
+      }
+    },
+    "component_reuse_system": {
+      "type": "object",
+      "description": "Semantic discovery and reuse system for avoiding duplicate work",
+      "required": [
+        "retrieval_sources",
+        "retrieval_filters",
+        "validation_rules",
+        "adaptation_rules",
+        "monitoring_rules"
+      ],
+      "properties": {
+        "retrieval_sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ClawHub_Skill",
+              "GitHub_Code_Component"
+            ]
+          }
+        },
+        "retrieval_filters": {
+          "type": "object",
+          "required": [
+            "ClawHub",
+            "GitHub"
+          ],
+          "properties": {
+            "ClawHub": {
+              "type": "object",
+              "required": [
+                "quality_score",
+                "reuse_rate",
+                "security_audit",
+                "maintenance_activity",
+                "user_rating"
+              ],
+              "properties": {
+                "quality_score": {
+                  "type": "number",
+                  "minimum": 0.7,
+                  "const": 0.7
+                },
+                "reuse_rate": {
+                  "type": "number",
+                  "minimum": 0.3,
+                  "const": 0.3
+                },
+                "security_audit": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "maintenance_activity": {
+                  "type": "string",
+                  "const": "updated_in_last_3_months"
+                },
+                "user_rating": {
+                  "type": "number",
+                  "minimum": 3.0,
+                  "maximum": 5.0,
+                  "const": 3.0
+                }
+              },
+              "additionalProperties": false
+            },
+            "GitHub": {
+              "type": "object",
+              "required": [
+                "community_recognition",
+                "maintenance_status",
+                "code_quality",
+                "documentation",
+                "test_coverage"
+              ],
+              "properties": {
+                "community_recognition": {
+                  "type": "object",
+                  "properties": {
+                    "stars": {
+                      "type": "integer",
+                      "minimum": 100,
+                      "const": 100
+                    },
+                    "forks": {
+                      "type": "integer",
+                      "minimum": 20,
+                      "const": 20
+                    }
+                  },
+                  "required": [
+                    "stars",
+                    "forks"
+                  ],
+                  "additionalProperties": false
+                },
+                "maintenance_status": {
+                  "type": "object",
+                  "properties": {
+                    "last_commit": {
+                      "type": "string",
+                      "const": "within_last_6_months"
+                    },
+                    "issue_response_rate": {
+                      "type": "number",
+                      "minimum": 0.8,
+                      "const": 0.8
+                    }
+                  },
+                  "required": [
+                    "last_commit",
+                    "issue_response_rate"
+                  ],
+                  "additionalProperties": false
+                },
+                "code_quality": {
+                  "type": "object",
+                  "properties": {
+                    "lint_errors": {
+                      "type": "integer",
+                      "maximum": 5,
+                      "const": 5
+                    }
+                  },
+                  "required": [
+                    "lint_errors"
+                  ],
+                  "additionalProperties": false
+                },
+                "documentation": {
+                  "type": "boolean",
+                  "const": true
+                },
+                "test_coverage": {
+                  "type": "number",
+                  "minimum": 0.6,
+                  "const": 0.6
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "validation_rules": {
+          "type": "object",
+          "required": [
+            "automated_checks",
+            "manual_checks"
+          ],
+          "properties": {
+            "automated_checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "spec_validation",
+                  "security_scan",
+                  "quality_metrics_calculation",
+                  "token_efficiency_check",
+                  "execution_compatibility_check",
+                  "sensitive_data_detection"
+                ]
+              }
+            },
+            "manual_checks": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "function_completeness≥95%",
+                  "architecture_rationality≥80%",
+                  "maintainability(comments≥60%)",
+                  "business_adaptability(modification≤20%)"
+                ]
+              }
+            }
+          }
+        },
+        "adaptation_rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "minimal_modification",
+              "isolated_adaptation(adapter_layer)",
+              "spec_alignment"
+            ]
+          }
+        },
+        "monitoring_rules": {
+          "type": "object",
+          "required": [
+            "metrics",
+            "update_strategy",
+            "elimination_rules"
+          ],
+          "properties": {
+            "metrics": {
+              "type": "object",
+              "properties": {
+                "ClawHub_Skill": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "execution_success_rate≥95%",
+                      "error_rate≤5%",
+                      "average_response_time≤3s",
+                      "token_consumption_compliant"
+                    ]
+                  }
+                },
+                "GitHub_Component": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "call_success_rate≥99%",
+                      "exception_count≤10_per_hour",
+                      "resource_usage_compliant"
+                    ]
+                  }
+                }
+              }
+            },
+            "update_strategy": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "monthly_upstream_bugfix_sync",
+                  "gray_scale_component_replacement",
+                  "abnormal_component_elimination"
+                ]
+              }
+            },
+            "elimination_rules": {
+              "type": "string",
+              "const": "Eliminate components with continuous issues for 3 months"
+            }
+          }
+        }
+      }
+    },
+    "ClawHub_audit_compliance": {
+      "type": "object",
+      "description": "Security and compliance requirements for ClawHub platform",
+      "required": [
+        "critical_issues",
+        "compliance_requirements",
+        "audit_pass_criteria"
+      ],
+      "properties": {
+        "critical_issues": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "information_persistence_risk",
+              "sensitive_data_exposure",
+              "operation_scope_privilege",
+              "instruction_scope_transparency"
+            ]
+          }
+        },
+        "compliance_requirements": {
+          "type": "object",
+          "required": [
+            "data_security",
+            "operation_boundary",
+            "transparency"
+          ],
+          "properties": {
+            "data_security": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "graded_persistence_control",
+                  "persistence_content_pre_audit",
+                  "CLAUDE_TOOL_OUTPUT_sensitive_filter",
+                  "sensitive_data_detection_alert"
+                ]
+              }
+            },
+            "operation_boundary": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "root_directory_restriction",
+                  "path_security_validation",
+                  "Hook_scope_restriction",
+                  "Hook_behavior_whitelist",
+                  "instruction_scope_limitation"
+                ]
+              }
+            },
+            "transparency": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "explicit_user_confirmation",
+                  "operation_log_transparency",
+                  "automatic_cleanup_mechanism"
+                ]
+              }
+            }
+          }
+        },
+        "audit_pass_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "no_sensitive_data_persistence_exposure",
+              "all_operations_within_allowed_workspace",
+              "all_risky_operations_require_explicit_user_confirmation",
+              "no_unauthorized_Hook_script_behavior",
+              "no_unrelated_env_vars_binary_credential_requests",
+              "no_unverified_remote_download_execution"
+            ]
+          }
+        }
+      }
+    },
+    "error_handling": {
+      "type": "object",
+      "description": "Error classification, retry policy, and recovery strategies",
+      "required": [
+        "error_classification",
+        "retry_policy",
+        "fallback_behavior",
+        "alert_threshold"
+      ],
+      "properties": {
+        "error_classification": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "transient_network",
+              "validation_failure",
+              "security_violation",
+              "resource_exhausted",
+              "unknown"
+            ]
+          }
+        },
+        "retry_policy": {
+          "type": "object",
+          "properties": {
+            "max_retries": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 5,
+              "const": 3
+            },
+            "backoff_strategy": {
+              "type": "string",
+              "enum": [
+                "exponential",
+                "linear",
+                "fixed"
+              ],
+              "const": "exponential"
+            },
+            "retryable_errors": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "transient_network",
+                  "resource_exhausted"
+                ]
+              }
+            }
+          },
+          "required": [
+            "max_retries",
+            "backoff_strategy",
+            "retryable_errors"
+          ],
+          "additionalProperties": false
+        },
+        "fallback_behavior": {
+          "type": "string",
+          "enum": [
+            "use_cached_component",
+            "degrade_to_manual_review",
+            "abort_with_clear_message"
+          ],
+          "const": "abort_with_clear_message"
+        },
+        "alert_threshold": {
+          "type": "object",
+          "properties": {
+            "consecutive_failures": {
+              "type": "integer",
+              "minimum": 3,
+              "maximum": 10,
+              "const": 5
+            },
+            "error_rate_percent": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "const": 5.0
+            }
+          },
+          "required": [
+            "consecutive_failures",
+            "error_rate_percent"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "observability": {
+      "type": "object",
+      "description": "Logging, metrics, and tracing specifications for production monitoring",
+      "required": [
+        "logging_schema",
+        "metrics_export",
+        "tracing_context"
+      ],
+      "properties": {
+        "logging_schema": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "const": "json"
+            },
+            "required_fields": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "timestamp",
+                  "level",
+                  "agent_id",
+                  "operation",
+                  "skill_id",
+                  "correlation_id"
+                ]
+              }
+            },
+            "sensitive_field_masking": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "api_key",
+                  "user_input_snippet",
+                  "file_content"
+                ]
+              }
+            }
+          },
+          "required": [
+            "format",
+            "required_fields",
+            "sensitive_field_masking"
+          ],
+          "additionalProperties": false
+        },
+        "metrics_export": {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "type": "string",
+              "enum": [
+                "prometheus",
+                "otlp",
+                "cloudwatch"
+              ],
+              "const": "prometheus"
+            },
+            "required_metrics": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "skill_generation_duration_seconds",
+                  "component_retrieval_cache_hit_ratio",
+                  "audit_pass_rate",
+                  "rl_reward_signal_value",
+                  "token_efficiency_ratio"
+                ]
+              }
+            }
+          },
+          "required": [
+            "protocol",
+            "required_metrics"
+          ],
+          "additionalProperties": false
+        },
+        "tracing_context": {
+          "type": "object",
+          "properties": {
+            "propagation_format": {
+              "type": "string",
+              "enum": [
+                "w3c_traceparent",
+                "b3"
+              ],
+              "const": "w3c_traceparent"
+            },
+            "sample_rate": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "const": 0.1
+            }
+          },
+          "required": [
+            "propagation_format",
+            "sample_rate"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "testing_strategy": {
+      "type": "object",
+      "description": "Test types, coverage requirements, and data policies",
+      "required": [
+        "test_types",
+        "coverage_enforcement",
+        "test_data_policy"
+      ],
+      "properties": {
+        "test_types": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "unit_test",
+              "integration_test",
+              "e2e_workflow_test",
+              "security_penetration_test",
+              "chaos_test"
+            ]
+          }
+        },
+        "coverage_enforcement": {
+          "type": "object",
+          "properties": {
+            "unit_coverage_min": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "const": 0.9
+            },
+            "integration_coverage_min": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "const": 0.7
+            },
+            "critical_path_coverage": {
+              "type": "number",
+              "minimum": 0.0,
+              "maximum": 1.0,
+              "const": 1.0
+            }
+          },
+          "required": [
+            "unit_coverage_min",
+            "integration_coverage_min",
+            "critical_path_coverage"
+          ],
+          "additionalProperties": false
+        },
+        "test_data_policy": {
+          "type": "object",
+          "properties": {
+            "synthetic_data_only": {
+              "type": "boolean",
+              "const": true
+            },
+            "no_real_user_data_in_tests": {
+              "type": "boolean",
+              "const": true
+            },
+            "data_anonymization_required": {
+              "type": "boolean",
+              "const": true
+            }
+          },
+          "required": [
+            "synthetic_data_only",
+            "no_real_user_data_in_tests",
+            "data_anonymization_required"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "implementation_priority": {
+      "type": "object",
+      "required": [
+        "P0",
+        "P1",
+        "P2"
+      ],
+      "properties": {
+        "P0": {
+          "type": "array",
+          "description": "Must complete first - security gatekeepers",
+          "items": {
+            "type": "string",
+            "enum": [
+              "CLAUDE_TOOL_OUTPUT_sensitive_filter",
+              "file_operation_path_restriction_validation",
+              "Hook_persistence_user_confirmation",
+              "graded_persistence_automatic_cleanup"
+            ]
+          }
+        },
+        "P1": {
+          "type": "array",
+          "description": "Core functionality - enable development workflow",
+          "items": {
+            "type": "string",
+            "enum": [
+              "sensitive_data_detection_alert",
+              "Hook_scope_behavior_restriction",
+              "operation_log_generation",
+              "least_privilege_data_access"
+            ]
+          }
+        },
+        "P2": {
+          "type": "array",
+          "description": "Enhancements - automation and integration",
+          "items": {
+            "type": "string",
+            "enum": [
+              "compliance_check_into_NSLT_quality_layer",
+              "SkillRL_AuditAgent_compliance_extension",
+              "Meta-Skills_automatic_compliant_script_generation",
+              "persistence_content_pre_audit_automation"
+            ]
+          }
+        }
+      }
+    },
+    "acceptance_criteria": {
+      "type": "object",
+      "required": [
+        "functional",
+        "compliance",
+        "performance"
+      ],
+      "properties": {
+        "functional": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Meta-Skills_closed_loop_working",
+              "SkillRL_5_agent_collaboration",
+              "component_retrieval_validation_working",
+              "ClawHub_spec_compliant"
+            ]
+          }
+        },
+        "compliance": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "ClawHub_audit_pass_rate_100%",
+              "no_sensitive_data_leaks",
+              "all_operations_within_boundaries"
+            ]
+          }
+        },
+        "performance": {
+          "type": "object",
+          "properties": {
+            "skill_generation_time": {
+              "type": "string",
+              "const": "<30 minutes per Skill"
+            },
+            "component_retrieval_time": {
+              "type": "string",
+              "const": "<10 seconds per query"
+            },
+            "quality_score": {
+              "type": "number",
+              "minimum": 0.7,
+              "maximum": 1.0,
+              "const": 0.7
+            }
+          },
+          "required": [
+            "skill_generation_time",
+            "component_retrieval_time",
+            "quality_score"
+          ],
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "x-upgrade-notes": {
+    "from_version": "1.0.0",
+    "to_version": "1.1.0",
+    "papers_integrated": 15,
+    "modifications_applied": 15,
+    "backward_compatible": true,
+    "upgrade_date": "2026-03-04"
+  }
+}
