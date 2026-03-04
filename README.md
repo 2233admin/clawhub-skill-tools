@@ -79,7 +79,7 @@
 @article{liu2026nslt,
   title={Neural Scaling Laws Trilogy: Representation, Transformation, and Training},
   author={Liu, Yizhou and Liu, Ziming and Gore, Jeff and others},
-  journal={arXiv preprint arXiv:2602.xxxxx},
+  journal={arXiv preprint (to appear, 2602)},
   year={2026},
   note={Core theoretical foundation}
 }
@@ -147,7 +147,7 @@
 @article{arxiv2025scalingcode,
   title={Scaling Laws for Code Generation: From Architecture to Implementation},
   author={Anonymous},
-  journal={arXiv preprint arXiv:2511.xxxxx},
+  journal={arXiv preprint (to appear, 2511)},
   year={2025}
 }
 
@@ -215,21 +215,21 @@
 @article{arxiv2026datahungry,
   title={Scaling Laws for Code: A More Data-Hungry Regime},
   author={Anonymous},
-  journal={arXiv preprint arXiv:2602.xxxxx},
+  journal={arXiv preprint (to appear, 2602)},
   year={2026}
 }
 
 @article{arxiv2026coda,
   title={Context-Decoupled Hierarchical Agent with RL},
   author={Anonymous},
-  journal={arXiv preprint arXiv:2601.xxxxx},
+  journal={arXiv preprint (to appear, 2601)},
   year={2026}
 }
 
 @article{arxiv2026archscaling,
   title={Scaling Laws Meet Model Architecture},
   author={Anonymous},
-  journal={arXiv preprint arXiv:2602.xxxxx},
+  journal={arXiv preprint (to appear, 2602)},
   year={2026}
 }
 ```
