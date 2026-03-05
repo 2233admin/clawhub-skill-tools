@@ -234,14 +234,62 @@
 }
 ```
 
+## SkillForge CLI
+
+基于 NSLT 规范的实用 Skill 开发工具，支持 Claude Code 和 OpenClaw 双平台。
+
+### 安装
+
+```bash
+cd tools/skill-forge
+bun install && bun link
+```
+
+### 使用
+
+```bash
+sf init my-skill -t both       # 创建新 Skill（NSLT 4层模板）
+sf validate ./my-skill         # 验证（安全扫描 + 质量评分 + token效率）
+sf build ./my-skill            # 构建为 Claude Code / OpenClaw 格式
+sf deploy ./my-skill           # 构建并安装到对应目录
+sf list                        # 查看所有已安装 Skill
+sf stats                       # 统计概览
+```
+
+### NSLT 4层架构映射
+
+| 层 | 文件 | 作用 |
+|----|------|------|
+| metadata_layer | manifest.json | Skill 身份、标签、分类 |
+| core_logic_layer | skill.md | 核心指令（≤500行） |
+| dependency_layer | manifest.json | 依赖声明 + 冲突检测 |
+| quality_metrics_layer | manifest.json (auto) | 质量评分、token效率、测试覆盖 |
+
+### 验证规则
+
+- 安全扫描：硬编码密钥、外部URL、系统路径、危险命令
+- Token 效率 ≥ 80%（有效内容占比）
+- 核心逻辑 ≤ 500 行
+- 依赖冲突检测
+
 ## 文件结构
 
 ```
-clawhub-skill-ecosystem/
+clawhub-skill-tools/
 ├── README.md                           # 本文件
 ├── PROJECT_OVERVIEW.md                 # 项目定位详细说明
 ├── spec/
 │   └── ClawHub_Skill_Ecosystem_Development_Spec_v1.1.0.json
+├── tools/
+│   └── skill-forge/                    # SkillForge CLI 工具
+│       ├── package.json
+│       └── src/
+│           ├── index.ts                # CLI 入口
+│           ├── init.ts                 # Skill 脚手架
+│           ├── validate.ts             # NSLT 规范验证
+│           ├── build.ts                # 双平台构建
+│           ├── list.ts                 # Skill 管理
+│           └── templates/default.ts    # NSLT 模板
 ├── CHANGELOG_v1.1.0.md
 ├── migrations/
 │   └── v1.0.0_to_v1.1.0.py

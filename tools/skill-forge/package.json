@@ -1,0 +1,13 @@
+{
+  "name": "skill-forge",
+  "version": "0.1.0",
+  "description": "NSLT-guided Skill development tool for Claude Code & OpenClaw",
+  "type": "module",
+  "bin": {
+    "sf": "./src/index.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "test": "bun test"
+  }
+}
